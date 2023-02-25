@@ -10,9 +10,13 @@ help: ## Show this help
 	@awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z0-9_-]+:.*?## / {printf "  \033[32m%-24s\033[0m %s\n", $$1, $$2}' $(MAKEFILE_LIST)
 
 .PHONY: up
-up:
+up: ## Set up wireguard container
 	@docker compose up --detach
 
 .PHONY: down
-down:
+down: ## Put down wireguard container
 	@docker compose down
+
+.PHONY: show-peer
+show-peer: ## Show $(PEER) QR code
+	@docker compose exec -T wireguard /app/show-peer $(PEER)
