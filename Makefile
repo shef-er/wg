@@ -18,9 +18,9 @@ down: ## Put down wireguard container
 	@docker compose down
 
 .PHONY: show-peer
-show-peer-qr: ## Show $(PEER) QR code
+show-peer-qr: ## Show $(PEER) QR code, example: make show-peer-qr PEER=1
 	@docker compose exec -T wireguard /app/show-peer $(PEER)
 
 .PHONY: show-peer
-show-peer-config: ## Show $(PEER) config
+show-peer-config: ## Show $(PEER) config, example: make show-peer-config PEER=1
 	@docker compose exec -T wireguard cat /config/peer$(PEER)/peer$(PEER).conf
