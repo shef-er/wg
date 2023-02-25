@@ -15,5 +15,5 @@ make up
 To see available commands run:
 
 ```shell
-make show-peer
+make help
 ```
