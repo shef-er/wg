@@ -11,8 +11,8 @@ help: ## Show this help
 
 .PHONY: up
 up:
-	@docker-compose up
+	@docker compose up --detach
 
 .PHONY: down
 down:
-	@docker-compose down
+	@docker compose down
